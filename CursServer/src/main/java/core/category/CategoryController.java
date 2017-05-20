@@ -1,8 +1,9 @@
 package core.category;
 
+import core.category.model.Category;
+import core.category.model.CategoryDTO;
 import core.category.service.CategoryService;
-import core.torrent.Torrent;
-import core.torrent.service.TorrentService;
+import core.torrent.model.TorrentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class CategoryController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Category> getCategories() {
+    public List<CategoryDTO> getCategories() {
         return categoryService.getRootCategories();
     }
 
@@ -29,7 +30,13 @@ public class CategoryController {
     }
 
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.GET)
-    public Category readCategory(@PathVariable long id) {
-        return categoryService.getCategory(id);
+    public CategoryDTO readCategory(@PathVariable int id) {
+        CategoryDTO categoryDTO = categoryService.getCategory(id);
+        return categoryDTO;
+    }
+
+    @RequestMapping(value = {"/{id}/torrents"}, method = RequestMethod.GET)
+    public List<TorrentDTO> readTorrentsByCategory(@PathVariable int id) {
+        return categoryService.getAllTorrentsByCategoryId(id);
     }
 }

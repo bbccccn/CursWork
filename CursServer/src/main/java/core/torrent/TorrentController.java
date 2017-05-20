@@ -1,7 +1,8 @@
 package core.torrent;
 
 
-import core.category.Category;
+import core.torrent.model.Torrent;
+import core.torrent.model.TorrentDTO;
 import core.torrent.service.TorrentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,18 +19,20 @@ public class TorrentController {
         this.torrentService = torrentService;
     }
 
+    @RequestMapping(method = RequestMethod.GET)
+    public List<TorrentDTO> readTorrents() {
+        return torrentService.getAllTorrents();
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public void createTorrent(@RequestBody Torrent torrent) {
         torrentService.createTorrent(torrent);
     }
 
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.GET)
-    public Torrent readTorrent(@PathVariable int id) {
-        return torrentService.getTorrent(id);
-    }
+    public TorrentDTO readTorrent(@PathVariable int id) {
+        TorrentDTO torrent = torrentService.getTorrent(id);
 
-    @RequestMapping(value = {"/category/{id}"}, method = RequestMethod.GET)
-    public List<Torrent> readCategoryTorrents(@PathVariable int id) {
-        return torrentService.getAllTorrentsByCategoryId(id);
+        return torrent;
     }
 }

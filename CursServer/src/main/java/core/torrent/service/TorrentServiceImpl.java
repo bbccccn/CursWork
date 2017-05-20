@@ -1,10 +1,12 @@
 package core.torrent.service;
 
-import core.torrent.Torrent;
+import core.torrent.model.Torrent;
+import core.torrent.model.TorrentDTO;
 import core.torrent.TorrentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,13 +19,16 @@ public class TorrentServiceImpl implements TorrentService {
     }
 
     @Override
-    public List<Torrent> getAllTorrentsByCategoryId(int id) {
-        return torrentRepository.getTorrentsByCategoryId(id);
+    public List<TorrentDTO> getAllTorrents() {
+        List<Torrent> torrents = torrentRepository.findAll();
+        List<TorrentDTO> torrentDTOList = new ArrayList<>();
+        torrents.forEach(t -> torrentDTOList.add(new TorrentDTO(t)));
+        return torrentDTOList;
     }
 
     @Override
-    public Torrent getTorrent(int id) {
-        return torrentRepository.findOne(id);
+    public TorrentDTO getTorrent(int id) {
+        return new TorrentDTO(torrentRepository.findOne(id));
     }
 
     @Override

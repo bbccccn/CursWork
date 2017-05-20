@@ -1,0 +1,23 @@
+.torrent-container{
+  border: 1px solid lightslategray;
+  padding: 8px;
+}
+
+.torrent-name{
+  width: 100%;
+  background-color: #212121;
+  color: white;
+}
+
+h1{
+  margin: 0;
+  padding: 4px;
+}
+
+.torrent-container > p {
+  margin: 0 0 8px 0;
+}
+
+.info{
+  color: slategray;
+}

@@ -5,7 +5,7 @@ import {Torrent} from "./torrent";
 @Injectable()
 export class TorrentService {
   private mock: [Torrent] = [
-    new Torrent(0, "COD:BO", "TOP GAME, GOTY, 10/10!!111"//, null, null, null, null
+    new Torrent(0, "COD:BO", "TOP GAME, GOTY, 10/10!!111", null, "2014-07-15", 1, "published"
     ),
     new Torrent(1, "COD:BO2", "TOP GAME, GOTY, 10/10!!111"//, null, null, null, null
     ),

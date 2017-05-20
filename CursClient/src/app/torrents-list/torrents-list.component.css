@@ -7,12 +7,8 @@
   color: white;
 }
 
-.each-second-item{
-  background-color: gray;
-}
-
-.torrent-list-item{
-
+.torrent-list-item:nth-child(2n){
+  background-color: #f3f3f3;
 }
 
 h1 {

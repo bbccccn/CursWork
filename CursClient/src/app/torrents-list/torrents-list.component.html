@@ -5,7 +5,7 @@
     </h1>
   </div>
 
-  <div *ngFor="let torrent of hack(torrentsList) | async; let i=index" class="torrent-list-item">
+  <div *ngFor="let torrent of torrentsList; let i=index" class="torrent-list-item">
     <p [ngClass]="{'each-second-item': index%2===0}">
       {{torrent.name}}
       <!--<span>here will be timestamp</span>-->

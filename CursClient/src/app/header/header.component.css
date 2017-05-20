@@ -1,0 +1,16 @@
+.header-container{
+  background-color: #212121;
+  height: 90px;
+  color: white;
+  font-size: 53px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo{
+  height: 80px;
+  width: 70px;
+  background: white url('../../logo.svg');
+  display: block;
+  background-size: 80px 90px;
+}

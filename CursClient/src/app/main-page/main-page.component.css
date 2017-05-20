@@ -1,0 +1,12 @@
+.home-container{
+  display: inline-flex;
+  width: 100%;
+}
+
+.profile-widget{
+  align-self: flex-start;
+}
+
+.all-torrents{
+  width: 100%;
+}

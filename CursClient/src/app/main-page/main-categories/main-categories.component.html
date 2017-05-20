@@ -1,0 +1,16 @@
+<div class="torrents-container">
+  <div *ngFor="let first_category of this.categories" class="first-level">
+    <p (click)="onSelect(first_category)">{{first_category.name}}</p>
+    <div class="second-level">
+      <div *ngFor="let second_category of first_category.childCategories">
+        <p (click)="onSelect(second_category)">{{second_category.name}}</p>
+        <ul class="third-level-container">
+          <li *ngFor="let third_category of second_category.childCategories" class="third-level"
+          (click)="onSelect(third_category)">
+            {{third_category.name}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

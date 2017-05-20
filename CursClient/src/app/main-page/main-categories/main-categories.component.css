@@ -1,0 +1,41 @@
+.torrents-container{
+  border: 1px solid lightslategray;
+  margin-left: 15px;
+}
+
+p{
+  margin: 0 0 4px 2px;
+}
+
+.first-level{
+  padding-top: 4px;
+  padding-left: 4px;
+  margin-bottom: 4px;
+  color: white;
+  background-color: #212121;
+  font-size: 24px;
+}
+
+.second-level{
+  margin-left: -4px;
+  padding-left: 8px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+}
+
+li{
+  display: inline;
+  padding-right: 6px;
+  cursor: hand;
+}
+
+.third-level-container{
+  margin: 4px 0 4px 0;
+  padding-left: 15px;
+  /*list-style-type: circle;*/
+}
+
+.third-level{
+  font-size: 17px;
+}

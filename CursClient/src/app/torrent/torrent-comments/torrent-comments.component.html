@@ -1,0 +1,12 @@
+<div class="comments-container">
+  <h1>
+    Comments
+  </h1>
+  <div class="comments">
+    <div *ngFor="let comment of comments" class="comment">
+      <p>
+        {{comment.message}}
+      </p>
+    </div>
+  </div>
+</div>

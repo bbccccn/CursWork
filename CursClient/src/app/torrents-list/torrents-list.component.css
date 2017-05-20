@@ -1,0 +1,26 @@
+.torrents-list-container{
+  border: 1px solid lightslategray;
+}
+
+.list-header {
+  background-color: #212121;
+  color: white;
+}
+
+.each-second-item{
+  background-color: gray;
+}
+
+.torrent-list-item{
+
+}
+
+h1 {
+  margin: 0;
+  padding: 3px 0 3px 3px;
+}
+p {
+  margin: 0;
+  padding: 3px 0 3px 6px;
+}
+

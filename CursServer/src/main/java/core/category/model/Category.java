@@ -1,6 +1,8 @@
-package core.category;
+package core.category.model;
 
-//import core.torrent.Torrent;
+//import core.torrent.model.Torrent;
+
+import core.torrent.model.Torrent;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,6 +17,9 @@ public class Category {
     private Integer parentCategoryId;
     @OneToMany(mappedBy = "parentCategoryId")
     private List<Category> childCategories;
+
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<Torrent> torrents;
 
     public Category() {
     }
@@ -48,5 +53,9 @@ public class Category {
 
     public void setChildCategories(List<Category> childCategories) {
         this.childCategories = childCategories;
+    }
+
+    public List<Torrent> getTorrents() {
+        return torrents;
     }
 }

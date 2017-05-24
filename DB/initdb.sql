@@ -5,8 +5,8 @@ SET SQL_MODE = '';
 CREATE TABLE permissions
 (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    access_level VARCHAR(32) NOT NULL,
-    name INTEGER NOT NULL
+    access_level INTEGER  NOT NULL,
+    name VARCHAR(32) NOT NULL
 );
 
 CREATE TABLE categories

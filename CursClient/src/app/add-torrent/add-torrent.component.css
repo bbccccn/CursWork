@@ -1,0 +1,8 @@
+.torrent-inputs{
+  margin-top: 10px;
+}
+
+md-input-container {
+  display: block;
+  widht: 240px;
+}

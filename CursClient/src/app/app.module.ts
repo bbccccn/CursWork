@@ -17,6 +17,8 @@ import { TorrentsListComponent } from './torrents-list/torrents-list.component';
 import {TorrentService} from "./entities/torrent/torrent.service";
 import { TorrentCommentsComponent } from './torrent/torrent-comments/torrent-comments.component';
 import {CommentService} from "./entities/comment/comment.service";
+import {MdButtonModule, MdInputModule} from "@angular/material";
+import { AddTorrentComponent } from './add-torrent/add-torrent.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,17 @@ import {CommentService} from "./entities/comment/comment.service";
     MainCategoriesComponent,
     TorrentComponent,
     TorrentsListComponent,
-    TorrentCommentsComponent
+    TorrentCommentsComponent,
+    AddTorrentComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MdButtonModule,
+    MdInputModule
   ],
   providers: [
     CategoryService,

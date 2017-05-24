@@ -6,7 +6,7 @@
   </div>
 
   <div *ngFor="let torrent of torrentsList; let i=index" class="torrent-list-item">
-    <p [ngClass]="{'each-second-item': index%2===0}">
+    <p [ngClass]="{'each-second-item': index%2===0}" (click)="onClick(torrent)">
       {{torrent.name}}
       <!--<span>here will be timestamp</span>-->
     </p>

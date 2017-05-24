@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {MainPageComponent} from "./main-page/main-page.component";
 import {TorrentsListComponent} from "./torrents-list/torrents-list.component";
 import {TorrentComponent} from "./torrent/torrent.component";
+import {AddTorrentComponent} from "./add-torrent/add-torrent.component";
 
 const routes: Routes = [
   {
@@ -19,9 +20,14 @@ const routes: Routes = [
     component: TorrentsListComponent
   },
   {
+    path: 'torrent/new',
+    component: AddTorrentComponent
+  },
+  {
     path: 'torrent/:id',
     component: TorrentComponent
-  }
+  },
+
 ];
 
 @NgModule({

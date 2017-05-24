@@ -3,7 +3,7 @@ import {TorrentService} from "../entities/torrent/torrent.service";
 import {Torrent} from "../entities/torrent/torrent";
 import {CategoryService} from "../entities/category/category.service";
 import {Category} from "../entities/category/category";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 
 @Component({
   selector: 'app-torrents-list',
@@ -16,7 +16,8 @@ export class TorrentsListComponent implements OnInit {
 
   constructor(private torrentService:TorrentService,
               private categoryService: CategoryService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     //when will be ready routing -- make this $hit
@@ -28,6 +29,10 @@ export class TorrentsListComponent implements OnInit {
     //     .subscribe(
     //       (torrents: [Torrent]) => this.torrentsList = torrents)
     );
+  }
+
+  public onClick(torrent: Torrent){
+    this.router.navigate(['/torrent', torrent.id]);
   }
 
 }

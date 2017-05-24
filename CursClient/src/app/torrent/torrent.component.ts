@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Torrent} from "../entities/torrent/torrent";
 import {TorrentService} from "../entities/torrent/torrent.service";
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-torrent',
@@ -10,11 +11,15 @@ import {TorrentService} from "../entities/torrent/torrent.service";
 export class TorrentComponent implements OnInit {
   private torrent: Torrent;
 
-  constructor(private torrentService:TorrentService) { }
+  constructor(private torrentService:TorrentService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     //here -- change value 0 to service route parsed param
     this.torrent = this.torrentService.getTorrentById(0);
+    // this.route
+    //   .params.switchMap((params: Params)=> this.torrentService.getTorrentById(+params['id']))
+    //   .subscribe()
   }
 
 }

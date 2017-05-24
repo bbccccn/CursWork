@@ -90,7 +90,7 @@ CREATE TABLE files
     name VARCHAR(256) NOT NULL,
     file BLOB NOT NULL,
     creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    update_date INT NOT NULL,
+    update_date TIMESTAMP NOT NULL,
     type ENUM('file', 'image') NOT NULL,
     torrent_id INT NOT NULL,
     CONSTRAINT fk_torrents_files_torrent_id FOREIGN KEY (torrent_id) REFERENCES torrents (id)

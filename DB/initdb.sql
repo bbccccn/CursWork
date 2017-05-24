@@ -6,7 +6,7 @@ CREATE TABLE permissions
 (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     access_level VARCHAR(32) NOT NULL,
-    name VARCHAR(64) NOT NULL
+    name INTEGER NOT NULL
 );
 
 CREATE TABLE categories
@@ -109,9 +109,9 @@ CREATE TABLE downloads
 CREATE UNIQUE INDEX downloads_id_uindex ON downloads (id);
 
 INSERT INTO permissions (access_level, name) VALUES
-    ('111000000', 'guest'),
-    ('111111000', 'user'),
-    ('111111111', 'admin');
+    ('0', 'guest'),
+    ('1', 'user'),
+    ('2', 'admin');
 
 INSERT INTO categories (id, name, permission_id, parent_category_id) VALUES
     (1, 'Anime', 1, NULL),

@@ -2,7 +2,9 @@ package core.category.model;
 
 //import core.torrent.model.Torrent;
 
+import core.permission.model.Permission;
 import core.torrent.model.Torrent;
+import core.user.model.User;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,6 +22,10 @@ public class Category {
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Torrent> torrents;
+
+    @OneToOne
+    @JoinColumn(name = "permission_id")
+    private Permission permission;
 
     public Category() {
     }
@@ -44,18 +50,15 @@ public class Category {
         return parentCategoryId;
     }
 
-    public void setParentCategoryId(Integer parentCategoryId) {
-    }
-
     public List<Category> getChildCategories() {
         return childCategories;
     }
 
-    public void setChildCategories(List<Category> childCategories) {
-        this.childCategories = childCategories;
-    }
-
     public List<Torrent> getTorrents() {
         return torrents;
+    }
+
+    public Permission getPermission() {
+        return permission;
     }
 }

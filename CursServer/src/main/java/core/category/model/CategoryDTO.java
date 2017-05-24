@@ -1,5 +1,6 @@
 package core.category.model;
 
+import core.permission.model.PermissionDTO;
 import core.torrent.model.TorrentDTO;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ public class CategoryDTO {
     private int id;
     private String name;
     private Integer parentCategoryId;
+    private PermissionDTO permission;
     private List<CategoryDTO> childCategories;
     private List<TorrentDTO> torrents;
 
@@ -19,6 +21,7 @@ public class CategoryDTO {
         this.id = category.getId();
         this.name = category.getName();
         this.parentCategoryId = category.getParentCategoryId();
+        this.permission = new PermissionDTO(category.getPermission());
         this.childCategories = new ArrayList<>();
         category.getChildCategories().forEach(c -> this.childCategories.add(new CategoryDTO(c)));
         this.torrents = new ArrayList<>();

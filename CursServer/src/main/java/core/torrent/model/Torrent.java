@@ -1,6 +1,8 @@
 package core.torrent.model;
 
 import core.category.model.Category;
+import core.permission.model.Permission;
+import core.user.model.User;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -14,6 +16,12 @@ public class Torrent {
     @ManyToOne()
     @JoinColumn(name = "category_id")
     private Category category;
+    @ManyToOne()
+    @JoinColumn(name = "user_id")
+    private User user;
+    @ManyToOne()
+    @JoinColumn(name = "permission_id")
+    private Permission permission;
     private String name;
     private String description;
     private Date creationDate;

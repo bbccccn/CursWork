@@ -20,7 +20,7 @@ const routes: Routes = [
     component: TorrentsListComponent
   },
   {
-    path: 'torrent/new',
+    path: 'torrent/new/:categoryId',
     component: AddTorrentComponent
   },
   {

@@ -1,8 +1,13 @@
-<div class="torrent-inputs">
-  <md-input-container color="black">
-    <input mdInput placeholder="Torrent name" type="text">
-  </md-input-container>
-  <md-input-container>
-    <input mdInput placeholder="Description" type="text">
-  </md-input-container>
+<div class="torrent-form-container">
+  <div class="torrent-inputs">
+    <md-input-container color="black">
+      <input mdInput [(ngModel)]="torrent.name" placeholder="Torrent name" type="text" required>
+    </md-input-container>
+    <md-input-container>
+      <input mdInput [(ngModel)]="torrent.description" placeholder="Description" type="text">
+    </md-input-container>
+    <input placeholder="Choose your torrent file" (change)="onFileUpload($event)" type="file" class="file-upload" accept=".torrent">
+    <input placeholder="Choose your torrent image" (change)="onFileUpload($event)" type="file" class="file-upload" accept="image/jpeg">
+    <button md-button class="send-button" (click)="onClick()">Create torrent</button>
+  </div>
 </div>

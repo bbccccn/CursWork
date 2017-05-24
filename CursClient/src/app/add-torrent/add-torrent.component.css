@@ -1,8 +1,22 @@
+.torrent-form-container{
+  margin-top: 25px;
+}
+
 .torrent-inputs{
-  margin-top: 10px;
+  width: 240px;
 }
 
 md-input-container {
   display: block;
-  widht: 240px;
+}
+
+.file-upload{
+  display: block;
+  margin: 10px 0;
+}
+
+.send-button{
+  margin: 15px auto;
+  display: block;
+  border: 1px gray solid;
 }

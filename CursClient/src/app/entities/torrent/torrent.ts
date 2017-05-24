@@ -7,6 +7,8 @@ export class Torrent {
   public latestModificationDate: string;
   //rework to enum?
   public status: string;
+  public files: File[];
+  public comments: Comment[];
   //
 
 

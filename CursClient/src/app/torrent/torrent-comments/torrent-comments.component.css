@@ -3,3 +3,8 @@ h1 {
   font-size: 22px;
   /*font-weight: 900;*/
 }
+
+.comments-container{
+  margin: 0 20px 0 20px;
+  border-top: 1px solid lightgray;
+}

@@ -21,14 +21,19 @@ export class TorrentsListComponent implements OnInit {
 
   ngOnInit() {
     //when will be ready routing -- make this $hit
-    this.torrentsList = this.torrentService.getAllTorrentsByCategory(
-      0
-      //TODO make service give back category by id
-    //   this.route.params
-    //     .switchMap((params: Params) => this.torrentService.getAllTorrentsByCategory(+params['id']))
-    //     .subscribe(
-    //       (torrents: [Torrent]) => this.torrentsList = torrents)
-    );
+    let x;
+    this.route.params.subscribe(params => {
+      x = +params['id'];
+    });
+    this.categoryService.getCategoryById(x)
+      .subscribe(
+        category => {
+          console.log(JSON.stringify(category));
+          this.category = JSON.parse(category["_body"]);
+          console.log("------");
+          this.torrentsList = JSON.parse(category["_body.torrents"]);
+        }
+      );
   }
 
   public onClick(torrent: Torrent){

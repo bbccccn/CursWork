@@ -3,9 +3,8 @@ export class Torrent {
   public name: string;
   public description: string;
   public authorId: number;
-  public createDate: string;
-  public latestModificationDate: string;
-  //rework to enum?
+  public creationDate: string;
+  public editDate: string;
   public status: string;
   public files: File[];
   public comments: Comment[];
@@ -18,7 +17,9 @@ export class Torrent {
               latestModificationDate?: string,
               createDate?: string,
               authorId?: number,
-              status?: string) {
+              status?: string,
+              files?: File[],
+              comments?: Comment[]) {
     this.id = id;
     this.name = name;
     if (description)
@@ -26,10 +27,14 @@ export class Torrent {
     if (authorId)
       this.authorId = authorId;
     if (createDate)
-      this.createDate = createDate;
+      this.creationDate = createDate;
     if (latestModificationDate)
-      this.latestModificationDate = latestModificationDate;
+      this.editDate = latestModificationDate;
     if (status)
       this.status = status;
+    if(files)
+      this.files = files;
+    if (comments)
+      this.comments = comments;
   }
 }

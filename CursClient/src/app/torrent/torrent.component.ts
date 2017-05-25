@@ -15,11 +15,20 @@ export class TorrentComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
+    let x;
     //here -- change value 0 to service route parsed param
-    this.torrent = this.torrentService.getTorrentById(0);
-    // this.route
-    //   .params.switchMap((params: Params)=> this.torrentService.getTorrentById(+params['id']))
-    //   .subscribe()
-  }
+    this.route.params.subscribe(params => {
+      x = +params['id'];
+    });
 
+    this.torrentService.getTorrentById(x).subscribe(
+      v => {
+        console.log("----------");
+        console.log(v["_body"]);
+        this.torrent = JSON.parse(v["_body"]);
+        console.log(this.torrent);
+      }
+    );
+
+  }
 }

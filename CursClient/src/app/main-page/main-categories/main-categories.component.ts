@@ -16,13 +16,13 @@ export class MainCategoriesComponent implements OnInit {
               private router: Router) {}
 
   ngOnInit() {
-    this.categories = this.categoryService.getAllCategories();
-    // this.categoryService.getAllCategories()
-    //   .subscribe(
-    //   categories => {
-    //     this.categories = JSON.parse(categories._body);
-    //   }
-    // );
+    //this.categories = this.categoryService.getAllCategories();
+    this.categoryService.getAllCategories()
+      .subscribe(
+      categories => {
+        this.categories = JSON.parse(categories["_body"]);
+      }
+    );
   }
 
   onSelect(category: Category) {

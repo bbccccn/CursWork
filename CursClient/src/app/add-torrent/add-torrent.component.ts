@@ -23,7 +23,6 @@ export class AddTorrentComponent implements OnInit {
     this.fileList = [];
     this.route.params.subscribe(params => {
       this.torrent.id = +params['categoryId']; // (+) converts string 'id' to a number
-
       // In a real app: dispatch action to load the details here.
     });
   }

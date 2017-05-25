@@ -1,15 +1,17 @@
-<div class="torrent-name">
-  <h1>{{torrent.name}}</h1>
-</div>
-<div class="torrent-container">
-  <!--TODO -- use service to get username by id-->
-  <p class="info">Author: {{torrent.authorId}}</p>
-  <p class="info">Created at: {{torrent.createDate}}</p>
-  <div>
-    <b>Description:</b>
-    <p>
-      {{torrent.description}}
-    </p>
+<div *ngIf="torrent">
+  <div class="torrent-name">
+    <h1>{{torrent.name}}</h1>
   </div>
-  <app-torrent-comments></app-torrent-comments>
+  <div class="torrent-container">
+    <!--TODO -- use service to get username by id-->
+    <p class="info">Author: {{torrent.authorId}}</p>
+    <p class="info">Created at: {{torrent.creationDate}}</p>
+    <div>
+      <b>Description:</b>
+      <p>
+        {{torrent.description}}
+      </p>
+    </div>
+    <!--<app-torrent-comments></app-torrent-comments>-->
+  </div>
 </div>

@@ -34,8 +34,8 @@ public class CommentController {
     }
 
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.GET)
-    public void read(@PathVariable int id) {
-        commentService.getById(id);
+    public List<CommentDTO> read(@PathVariable int id) {
+        return commentService.getByTorrentId(id);
     }
 
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.DELETE)

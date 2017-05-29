@@ -2,12 +2,12 @@ export class Torrent {
   public id: number;
   public name: string;
   public description: string;
-  public authorId: number;
+  public authorId?: number;
   public creationDate: string;
   public editDate: string;
   public status: string;
-  public files: File[];
-  public comments: Comment[];
+  public files?: File[];
+  public comments?: Comment[];
   //
 
 

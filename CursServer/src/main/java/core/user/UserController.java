@@ -1,8 +1,5 @@
 package core.user;
 
-import core.comment.model.Comment;
-import core.comment.model.CommentDTO;
-import core.comment.service.CommentService;
 import core.user.model.User;
 import core.user.model.UserDTO;
 import core.user.service.UserService;
@@ -41,6 +38,12 @@ public class UserController {
         userService.getById(id);
     }
 
+    @RequestMapping(value = "/{login}/{password}", method=RequestMethod.GET)
+    public UserDTO getUserByLP(@PathVariable("login") String login, @PathVariable("password") String password) {
+        List<UserDTO> user = userService.getAll();
+
+        return user.stream().filter(v -> (v.getName().equals(login) && v.getPassword().equals(password))).findFirst().orElse(null);
+    }
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.DELETE)
     public void delete(@PathVariable int id) {
         userService.delete(id);

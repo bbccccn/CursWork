@@ -19,6 +19,8 @@ import { TorrentCommentsComponent } from './torrent/torrent-comments/torrent-com
 import {CommentService} from "./entities/comment/comment.service";
 import {MdButtonModule, MdInputModule} from "@angular/material";
 import { AddTorrentComponent } from './add-torrent/add-torrent.component';
+import {PermissionService} from "./entities/permission/permission.service";
+import {UserService} from "./entities/user/user.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { AddTorrentComponent } from './add-torrent/add-torrent.component';
   providers: [
     CategoryService,
     TorrentService,
-    CommentService
+    CommentService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

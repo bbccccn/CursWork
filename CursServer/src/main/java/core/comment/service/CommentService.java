@@ -13,4 +13,5 @@ public interface CommentService {
     void edit(Comment comment);
     CommentDTO getById(int id);
     List<CommentDTO> getAll();
+    List<CommentDTO> getByTorrentId(Integer id);
 }

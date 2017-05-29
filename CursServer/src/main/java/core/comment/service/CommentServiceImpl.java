@@ -44,10 +44,20 @@ public class CommentServiceImpl implements CommentService {
         List<Comment> comments = commentRepository.findAll();
         List<CommentDTO> commentDTOS = new ArrayList<>();
 
-        comments.forEach(comment -> {
-            commentDTOS.add(new CommentDTO(comment));
-        });
+        comments.forEach(comment -> commentDTOS.add(new CommentDTO(comment)));
 
         return commentDTOS;
+    }
+
+    @Override
+    public List<CommentDTO> getByTorrentId(Integer id) {
+        List<Comment> comments = commentRepository.getAllRootCategories(id);
+        List<CommentDTO> commentDTOs = new ArrayList<>();
+
+        comments.forEach(comment -> commentDTOs.add(new CommentDTO(comment)));
+
+        System.err.println(commentDTOs.size());
+
+        return commentDTOs;
     }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Torrent} from "../entities/torrent/torrent";
 import {TorrentService} from "../entities/torrent/torrent.service";
 import {ActivatedRoute, Params} from "@angular/router";
+import {CommentService} from "../entities/comment/comment.service";
 
 @Component({
   selector: 'app-torrent',
@@ -11,7 +12,8 @@ import {ActivatedRoute, Params} from "@angular/router";
 export class TorrentComponent implements OnInit {
   private torrent: Torrent;
 
-  constructor(private torrentService:TorrentService,
+  constructor(private torrentService: TorrentService,
+              private commentService: CommentService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -22,11 +24,8 @@ export class TorrentComponent implements OnInit {
     });
 
     this.torrentService.getTorrentById(x).subscribe(
-      v => {
-        console.log("----------");
-        console.log(v["_body"]);
-        this.torrent = JSON.parse(v["_body"]);
-        console.log(this.torrent);
+      torrent => {
+        this.torrent = JSON.parse(torrent["_body"]);
       }
     );
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Comment} from "../../entities/comment/comment";
 import {CommentService} from "../../entities/comment/comment.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-torrent-comments',
@@ -10,11 +11,22 @@ import {CommentService} from "../../entities/comment/comment.service";
 export class TorrentCommentsComponent implements OnInit {
   private comments: [Comment];
 
-  constructor(private commentService:CommentService) { }
+  constructor(private commentService:CommentService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    let x;
+    this.route.params.subscribe(params => {
+      x = +params['id'];
+    });
     //TODO -- parse id from route
-    this.comments = this.commentService.getCommentsForTorrentById(0);
+    this.commentService.getCommentsForTorrentById(x).subscribe(
+      v =>
+      {
+        console.log(JSON.stringify(v["_body"]));
+        this.comments = JSON.parse(v["_body"]);
+        console.log(this.comments.length);
+      }
+    );
   }
-
 }

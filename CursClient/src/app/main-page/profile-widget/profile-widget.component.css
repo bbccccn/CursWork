@@ -3,3 +3,14 @@
   width: 150px;
   border: 1px solid slategray;
 }
+
+.inputs{
+  width: 90%;
+  margin: 10px auto;
+}
+
+.send-button{
+  margin: 15px auto;
+  display: block;
+  border: 1px gray solid;
+}

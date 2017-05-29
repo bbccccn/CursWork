@@ -169,6 +169,11 @@ INSERT INTO private_messages (id, message, send_time, sender_id, reciever_id) VA
 ;
 
 INSERT INTO torrents (id, name, description, creation_date, edit_date, status, permission_id, user_id, torrent.torrents.category_id) VALUES
-    (1, 'Boku no Pico', 'Some awesome anime here!', DEFAULT, null, 'published', 1, 1, 2),
-    (2, 'Boku no Pico 2', 'Epic comeback', DEFAULT, null, 'published', 1, 1, 2)
+    (1, 'Boku no Pico', 'Some awesome anime here!', DEFAULT, null, 'published', 1, 1, 1),
+    (2, 'Boku no Pico 2', 'Epic comeback', DEFAULT, null, 'published', 1, 1, 1)
 ;
+
+INSERT INTO comments (id, comment, creation_date, torrent_id, user_id) VALUES
+    (1, 'is ther anybody out there?...', DEFAULT, 1, 1),
+    (2, 'Yep.', DEFAULT, 1, 2)
+    ;

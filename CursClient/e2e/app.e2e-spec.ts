@@ -7,7 +7,7 @@ describe('curs-client App', () => {
     page = new CursClientPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display comment saying app works', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('app works!');
   });

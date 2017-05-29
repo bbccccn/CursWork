@@ -15,8 +15,14 @@ h1 {
   margin: 0;
   padding: 3px 0 3px 3px;
 }
+
 p {
   margin: 0;
   padding: 3px 0 3px 6px;
+}
+
+.date{
+  float: right;
+  margin-right: 8px;
 }
 

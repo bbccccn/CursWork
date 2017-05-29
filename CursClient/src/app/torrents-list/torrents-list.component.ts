@@ -12,7 +12,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 })
 export class TorrentsListComponent implements OnInit {
   private category: Category;
-  private torrentsList: [Torrent];
+  private torrentsList: Torrent[];
 
   constructor(private torrentService:TorrentService,
               private categoryService: CategoryService,
@@ -29,9 +29,10 @@ export class TorrentsListComponent implements OnInit {
       .subscribe(
         category => {
           console.log(JSON.stringify(category));
+          console.log(JSON.stringify(category["_body"]));
+          let x = JSON.parse(category["_body"]);
           this.category = JSON.parse(category["_body"]);
-          console.log("------");
-          this.torrentsList = JSON.parse(category["_body.torrents"]);
+          this.torrentsList = this.category.torrents;
         }
       );
   }

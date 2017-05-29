@@ -1,14 +1,14 @@
-<div class="torrents-list-container">
+<div *ngIf="category" class="torrents-list-container">
   <div class="list-header">
     <h1>
-      Put Header as category name here
+      {{category.name}}
     </h1>
   </div>
 
   <div *ngFor="let torrent of torrentsList; let i=index" class="torrent-list-item">
     <p [ngClass]="{'each-second-item': index%2===0}" (click)="onClick(torrent)">
       {{torrent.name}}
-      <!--<span>here will be timestamp</span>-->
+      <span class="date">{{torrent.creationDate}}</span>
     </p>
   </div>
 </div>

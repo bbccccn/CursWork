@@ -13,8 +13,8 @@ public class Comment {
     private int id;
     private String comment;
     @Column(name = "creation_date")
-    private Timestamp creeationDate;
-    @OneToOne
+    private Timestamp creationDate;
+    @OneToOne()
     @JoinColumn(name = "torrent_id")
     private Torrent torrent;
     @OneToOne
@@ -29,13 +29,13 @@ public class Comment {
         return comment;
     }
 
-    public Timestamp getCreeationDate() {
-        return creeationDate;
+    public Timestamp getCreationDate() {
+        return creationDate;
     }
 
-//    public Torrent getTorrent() {
-//        return torrent;
-//    }
+    public Torrent getTorrent() {
+        return torrent;
+    }
 
 //    public User getUser() {
 //        return user;

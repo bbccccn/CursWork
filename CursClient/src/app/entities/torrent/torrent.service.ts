@@ -18,7 +18,7 @@ export class TorrentService {
     )
   ];
 
-  constructor(private http:Http) {}
+  constructor(private http: Http) {}
 
   public getTorrentById(id: any): Observable<any>{
     return this.http.get("http://localhost:8080/api/torrents/" + id);

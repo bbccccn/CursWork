@@ -1,4 +1,4 @@
-<div class="comments-container">
+<div *ngIf="comments" class="comments-container">
   <h1>
     Comments
   </h1>
@@ -7,7 +7,7 @@
       <!--TODO replace this user id with nickname : -->
       <p>{{comment.authorId}}</p>
       <p>
-        {{comment.message}}
+        {{comment.comment}}
       </p>
     </div>
   </div>

@@ -36,7 +36,6 @@ CREATE TABLE users
 CREATE UNIQUE INDEX Users_id_uindex ON users (id);
 CREATE UNIQUE INDEX Users_name_uindex ON users (name);
 CREATE UNIQUE INDEX Users_email_uindex ON users (email);
-CREATE UNIQUE INDEX Users_password_uindex ON users (password);
 
 CREATE TABLE private_messages
 (
@@ -68,7 +67,7 @@ CREATE TABLE torrents
     CONSTRAINT fk_torrents_users_user_id FOREIGN KEY (user_id) REFERENCES users (id),
     CONSTRAINT fk_torrents_categories_category_id FOREIGN KEY (category_id) REFERENCES categories (id)
 );
-CREATE UNIQUE INDEX torrents_id_uindex ON torrents (id)
+CREATE UNIQUE INDEX torrents_id_uindex ON torrents (id);
 
 
 
@@ -160,7 +159,8 @@ INSERT INTO categories (id, name, permission_id, parent_category_id) VALUES
 
 INSERT INTO users (id, name, email, password, reg_date, more_information, sex, birthday, permission) VALUES
     (1, 'OriginAdmin', 'admin_example@example.com', 'admin_password', DEFAULT, 'some info bro', 'male', DATE('1985-12-21'), 3),
-    (2, 'OriginUser', 'user@example.com', 'password', DEFAULT, 'some info bro', 'male', DATE('1990-09-21'), 1)
+    (2, 'OriginUser', 'user@example.com', 'password', DEFAULT, 'some info bro', 'male', DATE('1990-09-21'), 1),
+    (3, 'User', 'second_user@example.com', 'password', DEFAULT, 'Hu$tle Hard Flava', 'male', DATE('1991-09-21'), 2)
 ;
 
 INSERT INTO private_messages (id, message, send_time, sender_id, reciever_id) VALUES

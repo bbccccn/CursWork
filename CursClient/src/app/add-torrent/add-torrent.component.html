@@ -4,10 +4,13 @@
       <input mdInput [(ngModel)]="torrent.name" placeholder="Torrent name" type="text" required>
     </md-input-container>
     <md-input-container>
-      <input mdInput [(ngModel)]="torrent.description" placeholder="Description" type="text">
+      <textarea mdInput [(ngModel)]="torrent.description" placeholder="Description" type="text"></textarea>
     </md-input-container>
     <input placeholder="Choose your torrent file" (change)="onFileUpload($event)" type="file" class="file-upload" accept=".torrent">
     <input placeholder="Choose your torrent image" (change)="onFileUpload($event)" type="file" class="file-upload" accept="image/jpeg">
+    <md-select placeholder="Permission" [(ngModel)]="torrent.permission">
+      <md-option *ngFor="let permission of permissions" [value]="permission">{{permission.name}}</md-option>
+    </md-select>
     <button md-button class="send-button" (click)="onClick()">Create torrent</button>
   </div>
 </div>

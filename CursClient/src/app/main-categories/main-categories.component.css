@@ -1,6 +1,6 @@
 .torrents-container{
   border: 1px solid lightslategray;
-  margin-left: 15px;
+  width: 100%;
 }
 
 p{

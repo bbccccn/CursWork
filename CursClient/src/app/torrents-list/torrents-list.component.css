@@ -5,6 +5,7 @@
 .list-header {
   background-color: #212121;
   color: white;
+  height: 42px;
 }
 
 .torrent-list-item:nth-child(2n){
@@ -21,8 +22,11 @@ p {
   padding: 3px 0 3px 6px;
 }
 
-.date{
+.right-span {
   float: right;
   margin-right: 8px;
 }
 
+.torrent-name{
+  display: inline;
+}

@@ -3,6 +3,8 @@ import {Torrent} from "../entities/torrent/torrent";
 import {TorrentService} from "../entities/torrent/torrent.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {CommentService} from "../entities/comment/comment.service";
+import {UserService} from "../entities/user/user.service";
+import {User} from "../entities/user/user";
 
 @Component({
   selector: 'app-torrent',
@@ -11,9 +13,12 @@ import {CommentService} from "../entities/comment/comment.service";
 })
 export class TorrentComponent implements OnInit {
   private torrent: Torrent;
+  private author: User;
+  private isDataLoaded: boolean = false;
 
   constructor(private torrentService: TorrentService,
               private commentService: CommentService,
+              private userService: UserService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -26,8 +31,14 @@ export class TorrentComponent implements OnInit {
     this.torrentService.getTorrentById(x).subscribe(
       torrent => {
         this.torrent = JSON.parse(torrent["_body"]);
+        // this.userService.getUserById(this.torrent.user.id).subscribe(
+        //   user => {
+        //     this.author = JSON.parse(user["_body"]);
+        //     this.isDataLoaded = true;
+        //   }
+        // );
+        this.isDataLoaded = true;
       }
     );
-
   }
 }

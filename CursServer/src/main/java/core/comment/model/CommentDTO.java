@@ -10,14 +10,14 @@ public class CommentDTO {
     private String comment;
     private Timestamp creationDate;
     private TorrentDTO torrent;
-    private UserDTO user;
+    private UserDTO author;
 
     public CommentDTO(Comment comment) {
         id = comment.getId();
         this.comment = comment.getComment();
         creationDate = comment.getCreationDate();
         torrent = new TorrentDTO(comment.getTorrent());
-//        user = new UserDTO(comment.getUser());
+        author = new UserDTO(comment.getUser());
     }
 
     public int getId() {
@@ -36,7 +36,7 @@ public class CommentDTO {
         return torrent;
     }
 
-    public UserDTO getUser() {
-        return user;
+    public UserDTO getAuthor() {
+        return author;
     }
 }

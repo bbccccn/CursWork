@@ -6,7 +6,7 @@
         <input mdInput [(ngModel)]="name" placeholder="Login" type="text" required>
       </md-input-container>
       <md-input-container>
-        <input mdInput [(ngModel)]="password" placeholder="Password" type="password" required>
+        <input mdInput (keyup.enter)="onLogin()" [(ngModel)]="password" placeholder="Password" type="password" required>
       </md-input-container>
     </div>
     <button md-button class="send-button" (click)="onLogin()">Login</button>

@@ -34,16 +34,17 @@ public class UserController {
     }
 
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.GET)
-    public void read(@PathVariable int id) {
-        userService.getById(id);
+    public UserDTO read(@PathVariable int id) {
+        return userService.getById(id);
     }
 
-    @RequestMapping(value = "/{login}/{password}", method=RequestMethod.GET)
+    @RequestMapping(value = "login/{login}/{password}", method=RequestMethod.GET)
     public UserDTO getUserByLP(@PathVariable("login") String login, @PathVariable("password") String password) {
         List<UserDTO> user = userService.getAll();
 
         return user.stream().filter(v -> (v.getName().equals(login) && v.getPassword().equals(password))).findFirst().orElse(null);
     }
+
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.DELETE)
     public void delete(@PathVariable int id) {
         userService.delete(id);

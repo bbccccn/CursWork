@@ -10,6 +10,10 @@ md-input-container {
   display: block;
 }
 
+md-select{
+  margin-top: 20px;
+}
+
 .file-upload{
   display: block;
   margin: 10px 0;

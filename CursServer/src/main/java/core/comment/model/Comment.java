@@ -37,7 +37,7 @@ public class Comment {
         return torrent;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
+    public User getUser() {
+        return user;
+    }
 }

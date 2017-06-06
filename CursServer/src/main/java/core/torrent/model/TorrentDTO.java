@@ -1,5 +1,9 @@
 package core.torrent.model;
 
+import core.category.model.Category;
+import core.category.model.CategoryDTO;
+import core.user.model.User;
+
 import java.sql.Date;
 
 public class TorrentDTO {
@@ -9,6 +13,8 @@ public class TorrentDTO {
     private Date creationDate;
     private Date editDate;
     private String status;
+    private User user;
+    private CategoryDTO category;
 
     public TorrentDTO() {
     }
@@ -20,6 +26,8 @@ public class TorrentDTO {
         this.creationDate = torrent.getCreationDate();
         this.editDate = torrent.getEditDate();
         this.status = torrent.getStatus();
+        this.user = torrent.getUser();
+//        this.category = new CategoryDTO(torrent.getCategory());
     }
 
     public int getId() {
@@ -44,5 +52,13 @@ public class TorrentDTO {
 
     public String getStatus() {
         return status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public CategoryDTO getCategory() {
+        return category;
     }
 }

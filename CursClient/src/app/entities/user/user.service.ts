@@ -13,11 +13,16 @@ export class UserService {
     return this.user;
   }
 
+  public setCurrentUser(user: User): void{
+    console.log(this.user);
+    this.user = user;
+  }
+
   public getUserById(id: any): Observable<any>{
     return this.http.get("http://localhost:8080/api/users/" + id);
   }
 
   public getUserByLP(login: string, password: string): Observable<any> {
-    return this.http.get("http://localhost:8080/api/users/" + login + "/" + password);
+    return this.http.get("http://localhost:8080/api/users/login/" + login + "/" + password);
   }
 }

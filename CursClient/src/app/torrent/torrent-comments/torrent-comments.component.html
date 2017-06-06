@@ -5,7 +5,7 @@
   <div class="comments">
     <div *ngFor="let comment of comments" class="comment">
       <!--TODO replace this user id with nickname : -->
-      <p>{{comment.authorId}}</p>
+      <p><b>{{comment.author.name}}</b></p>
       <p>
         {{comment.comment}}
       </p>

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {MainPageComponent} from "./main-page/main-page.component";
+
 import {TorrentsListComponent} from "./torrents-list/torrents-list.component";
 import {TorrentComponent} from "./torrent/torrent.component";
 import {AddTorrentComponent} from "./add-torrent/add-torrent.component";
+import {MainCategoriesComponent} from "./main-categories/main-categories.component";
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: MainPageComponent
+    component: MainCategoriesComponent
   },
   {
     path: 'category/:id',

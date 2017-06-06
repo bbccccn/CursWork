@@ -1,13 +1,18 @@
+import {Category} from "../category/category";
+import {Permission} from "../permission/permission";
+import {User} from "../user/user";
 export class Torrent {
   public id: number;
   public name: string;
   public description: string;
-  public authorId?: number;
+  public user: User;
   public creationDate: string;
   public editDate: string;
   public status: string;
   public files?: File[];
   public comments?: Comment[];
+  public category: Category;
+  public permission: Permission;
   //
 
 
@@ -16,7 +21,6 @@ export class Torrent {
               description?: string,
               latestModificationDate?: string,
               createDate?: string,
-              authorId?: number,
               status?: string,
               files?: File[],
               comments?: Comment[]) {
@@ -24,8 +28,6 @@ export class Torrent {
     this.name = name;
     if (description)
       this.description = description;
-    if (authorId)
-      this.authorId = authorId;
     if (createDate)
       this.creationDate = createDate;
     if (latestModificationDate)

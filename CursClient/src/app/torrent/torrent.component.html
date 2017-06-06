@@ -1,10 +1,10 @@
-<div *ngIf="torrent">
+<div *ngIf="isDataLoaded">
   <div class="torrent-name">
     <h1>{{torrent.name}}</h1>
   </div>
   <div class="torrent-container">
     <!--TODO -- use service to get username by id-->
-    <p class="info">Author: {{torrent.authorId}}</p>
+    <p class="info">Author: {{torrent.user.name}}</p>
     <p class="info">Created at: {{torrent.creationDate}}</p>
     <div>
       <b>Description:</b>

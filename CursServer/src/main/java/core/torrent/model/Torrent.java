@@ -58,4 +58,16 @@ public class Torrent {
     public String getStatus() {
         return status;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Permission getPermission() {
+        return permission;
+    }
 }

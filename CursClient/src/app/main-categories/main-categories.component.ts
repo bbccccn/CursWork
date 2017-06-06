@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {CategoryService} from "../../entities/category/category.service";
-import {Category} from "../../entities/category/category";
+import {Category} from "../entities/category/category";
 import {Router} from "@angular/router";
+import {CategoryService} from "../entities/category/category.service";
 
 @Component({
   selector: 'app-main-torrents',
@@ -16,7 +16,6 @@ export class MainCategoriesComponent implements OnInit {
               private router: Router) {}
 
   ngOnInit() {
-    //this.categories = this.categoryService.getAllCategories();
     this.categoryService.getAllCategories()
       .subscribe(
       categories => {

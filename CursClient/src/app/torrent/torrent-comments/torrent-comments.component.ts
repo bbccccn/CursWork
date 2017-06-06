@@ -9,7 +9,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./torrent-comments.component.css']
 })
 export class TorrentCommentsComponent implements OnInit {
-  private comments: [Comment];
+  private comments: Comment[];
 
   constructor(private commentService:CommentService,
               private route: ActivatedRoute) { }
@@ -23,9 +23,7 @@ export class TorrentCommentsComponent implements OnInit {
     this.commentService.getCommentsForTorrentById(x).subscribe(
       v =>
       {
-        console.log(JSON.stringify(v["_body"]));
         this.comments = JSON.parse(v["_body"]);
-        console.log(this.comments.length);
       }
     );
   }

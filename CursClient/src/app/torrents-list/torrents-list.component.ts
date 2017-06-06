@@ -28,8 +28,6 @@ export class TorrentsListComponent implements OnInit {
     this.categoryService.getCategoryById(x)
       .subscribe(
         category => {
-          console.log(JSON.stringify(category));
-          console.log(JSON.stringify(category["_body"]));
           let x = JSON.parse(category["_body"]);
           this.category = JSON.parse(category["_body"]);
           this.torrentsList = this.category.torrents;
@@ -39,6 +37,10 @@ export class TorrentsListComponent implements OnInit {
 
   public onClick(torrent: Torrent){
     this.router.navigate(['/torrent', torrent.id]);
+  }
+
+  public addNew(){
+    this.router.navigate(['/torrent/new', this.category.id]);
   }
 
 }

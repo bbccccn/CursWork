@@ -11,4 +11,7 @@ export class PermissionService {
     return this.http.get("http://localhost:8080/api/permissions/" + id);
   }
 
+  public getAllPermissions(): Observable<any>{
+    return this.http.get("http://localhost:8080/api/permissions/");
+  }
 }

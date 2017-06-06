@@ -1,11 +1,12 @@
+import {User} from "../user/user";
 export class Comment{
-  public authorId: number;
   public comment: string;
   public timestamp: string;
+  public author: User;
 
 
-  constructor(authorId: number, comment: string, timestamp: string) {
-    this.authorId = authorId;
+  constructor(comment: string, timestamp: string, author: User) {
+    this.author = author;
     this.comment = comment;
     this.timestamp = timestamp;
   }

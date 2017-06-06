@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../entities/user/user.service";
-import {User} from "../../entities/user/user";
+import {UserService} from "../entities/user/user.service";
+import {User} from "../entities/user/user";
 
 @Component({
   selector: 'app-profile-widget',
@@ -17,7 +17,8 @@ export class ProfileWidgetComponent implements OnInit {
   constructor(private userService:UserService) { }
 
   ngOnInit() {
-    this.user = new User;
+    this.user = this.userService.getCurrentUser();
+    if (this.user !== undefined) this.isSignedIn = true;
   }
 
   onLogin(){
@@ -34,6 +35,7 @@ export class ProfileWidgetComponent implements OnInit {
         console.log("Try again");
       else {
         this.user = JSON.parse(v["_body"]);
+        this.userService.setCurrentUser(this.user);
         isLogged = true;
       }
     });

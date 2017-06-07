@@ -14,3 +14,7 @@
   display: block;
   background-size: 80px 90px;
 }
+
+.tracker-name{
+  padding-top: 0.1em;
+}

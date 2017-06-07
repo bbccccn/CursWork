@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../entities/user/user.service";
 import {User} from "../entities/user/user";
+import {isNull} from "util";
 
 @Component({
   selector: 'app-profile-widget',
@@ -18,7 +19,11 @@ export class ProfileWidgetComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userService.getCurrentUser();
-    if (this.user !== undefined) this.isSignedIn = true;
+    console.log(JSON.stringify(this.user));
+    if (!isNull(this.user)) {
+      this.isSignedIn = true;
+      console.log("this shit is null?")
+    }
   }
 
   onLogin(){

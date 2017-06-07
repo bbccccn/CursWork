@@ -5,6 +5,7 @@ import {TorrentsListComponent} from "./torrents-list/torrents-list.component";
 import {TorrentComponent} from "./torrent/torrent.component";
 import {AddTorrentComponent} from "./add-torrent/add-torrent.component";
 import {MainCategoriesComponent} from "./main-categories/main-categories.component";
+import {ProfileWidgetComponent} from "./profile-widget/profile-widget.component";
 
 const routes: Routes = [
   {
@@ -28,7 +29,10 @@ const routes: Routes = [
     path: 'torrent/:id',
     component: TorrentComponent
   },
-
+  {
+    path: 'login',
+    component: ProfileWidgetComponent
+  }
 ];
 
 @NgModule({

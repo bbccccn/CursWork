@@ -20,6 +20,7 @@ import {MdButtonModule, MdInputModule, MdSelect, MdSelectModule} from "@angular/
 import { AddTorrentComponent } from './add-torrent/add-torrent.component';
 import {PermissionService} from "./entities/permission/permission.service";
 import {UserService} from "./entities/user/user.service";
+import {StorageService} from "./entities/session/storage.service";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {UserService} from "./entities/user/user.service";
     TorrentService,
     CommentService,
     UserService,
-    PermissionService
+    PermissionService,
+    StorageService
   ],
   bootstrap: [AppComponent]
 })

@@ -2,19 +2,25 @@ import { Injectable } from '@angular/core';
 import {Http} from "@angular/http";
 import {Observable} from "rxjs";
 import {User} from "./user";
+import {StorageService} from "../session/storage.service";
 
 @Injectable()
 export class UserService {
   private user: User;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http,
+              private storage: StorageService) { }
 
   public getCurrentUser(): User{
+    let o = this.storage.getObject('loggedUser');
+    if (o !== 'undefined') this.user = o;
     return this.user;
   }
 
   public setCurrentUser(user: User): void{
+    console.log("Saving user to storage...");
     console.log(this.user);
+    this.storage.setObject('loggedUser', user);
     this.user = user;
   }
 

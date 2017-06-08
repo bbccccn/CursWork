@@ -1,0 +1,9 @@
+<div class="bar-container">
+  <p *ngIf="!isSignedIn; else elseBlock" (click)="onClick()">
+    Log in...
+  </p>
+
+  <ng-template #elseBlock>
+    <b>{{user.name}}</b>
+  </ng-template>
+</div>

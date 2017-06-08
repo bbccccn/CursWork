@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Comment} from "../../entities/comment/comment";
 import {CommentService} from "../../entities/comment/comment.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, UrlHandlingStrategy} from "@angular/router";
+import {UserService} from "../../entities/user/user.service";
 
 @Component({
   selector: 'app-torrent-comments',
@@ -12,6 +13,7 @@ export class TorrentCommentsComponent implements OnInit {
   private comments: Comment[];
 
   constructor(private commentService:CommentService,
+              private userService: UserService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -27,4 +29,6 @@ export class TorrentCommentsComponent implements OnInit {
       }
     );
   }
+
+
 }

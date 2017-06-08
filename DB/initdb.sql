@@ -87,7 +87,7 @@ CREATE TABLE files
 (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(256) NOT NULL,
-    file BLOB NOT NULL,
+    file LONGBLOB NOT NULL,
     creation_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     update_date TIMESTAMP NOT NULL,
     type ENUM('file', 'image') NOT NULL,

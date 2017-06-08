@@ -23,19 +23,19 @@ public class FileController {
         return fileService.getAllFiles();
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.POST)
     public void createFile(@RequestBody File file) {
         fileService.add(file);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.PUT)
     public void editFile(@RequestBody File file) {
         fileService.edit(file);
     }
 
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.GET)
-    public void readFile(@PathVariable int id) {
-        fileService.getById(id);
+    public List<FileDTO> readFile(@PathVariable int id) {
+        return fileService.getByTorrentId(id);
     }
 
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.DELETE)

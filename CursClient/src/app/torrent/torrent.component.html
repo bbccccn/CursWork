@@ -11,6 +11,8 @@
       <p>
         {{torrent.description}}
       </p>
+      <img [src]="image"/>
+      <b><a [href]="sanitize(torrent_file)">Download...</a></b>
     </div>
     <app-torrent-comments></app-torrent-comments>
   </div>

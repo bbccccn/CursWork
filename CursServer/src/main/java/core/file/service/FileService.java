@@ -9,6 +9,6 @@ public interface FileService {
     void add(File file);
     void delete(int fileId);
     void edit(File file);
-    FileDTO getById(int fileId);
+    List<FileDTO> getByTorrentId(int fileId);
     List<FileDTO> getAllFiles();
 }

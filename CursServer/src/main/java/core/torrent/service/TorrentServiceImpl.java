@@ -32,8 +32,8 @@ public class TorrentServiceImpl implements TorrentService {
     }
 
     @Override
-    public void createTorrent(Torrent torrent) {
-        torrentRepository.save(torrent);
+    public TorrentDTO createTorrent(Torrent torrent) {
+        return new TorrentDTO(torrentRepository.save(torrent));
     }
 
     @Override

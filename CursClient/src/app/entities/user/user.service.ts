@@ -11,6 +11,10 @@ export class UserService {
   constructor(private http: Http,
               private storage: StorageService) { }
 
+  public logOut(){
+    this.storage.removeObject('loggedUser');
+  }
+
   public getCurrentUser(): User{
     let o = this.storage.getObject('loggedUser');
     if (o !== 'undefined') this.user = o;
@@ -18,8 +22,6 @@ export class UserService {
   }
 
   public setCurrentUser(user: User): void{
-    console.log("Saving user to storage...");
-    console.log(this.user);
     this.storage.setObject('loggedUser', user);
     this.user = user;
   }

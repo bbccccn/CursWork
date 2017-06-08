@@ -25,8 +25,8 @@ public class TorrentController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void createTorrent(@RequestBody Torrent torrent) {
-        torrentService.createTorrent(torrent);
+    public TorrentDTO createTorrent(@RequestBody Torrent torrent) {
+        return torrentService.createTorrent(torrent);
     }
 
     @RequestMapping(value = {"/{id}"}, method = RequestMethod.GET)

@@ -21,6 +21,8 @@ import { AddTorrentComponent } from './add-torrent/add-torrent.component';
 import {PermissionService} from "./entities/permission/permission.service";
 import {UserService} from "./entities/user/user.service";
 import {StorageService} from "./entities/session/storage.service";
+import { ProfileBarComponent } from './profile-bar/profile-bar.component';
+import {MyFileService} from "./entities/file/my-file.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {StorageService} from "./entities/session/storage.service";
     TorrentComponent,
     TorrentsListComponent,
     TorrentCommentsComponent,
-    AddTorrentComponent
+    AddTorrentComponent,
+    ProfileBarComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -50,7 +53,8 @@ import {StorageService} from "./entities/session/storage.service";
     CommentService,
     UserService,
     PermissionService,
-    StorageService
+    StorageService,
+    MyFileService
   ],
   bootstrap: [AppComponent]
 })

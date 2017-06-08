@@ -13,10 +13,11 @@ export class TorrentService {
     return this.http.get(this.url + id);
   }
 
-  public saveTorrent(torrent: Torrent){
+  public saveTorrent(torrent: Torrent): Observable<any>{
     console.log(JSON.stringify(torrent));
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    this.http.post(this.url, JSON.stringify(torrent), options).subscribe(v => {console.log(v.headers); console.log("saved?");});
+    let response;
+    return this.http.post(this.url, JSON.stringify(torrent), options);
   }
 }

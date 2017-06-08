@@ -16,7 +16,7 @@ public class File {
     @Column(name = "creation_date")
     private Timestamp creationDate;
 
-    @Column(name = "apdate_date")
+    @Column(name = "update_date")
     private Timestamp updateDate;
 
     private String type;

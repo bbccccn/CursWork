@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import {UserService} from "../entities/user/user.service";
 import {User} from "../entities/user/user";
 import {isNull} from "util";
@@ -9,30 +9,34 @@ import {isNull} from "util";
   styleUrls: ['./profile-widget.component.css']
 })
 export class ProfileWidgetComponent implements OnInit {
-  isSignedIn: boolean;
+  isSignedIn: boolean = false;
   user: User;
   name: string;
   password: string;
 
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.user = this.userService.getCurrentUser();
-    console.log(JSON.stringify(this.user));
     if (!isNull(this.user)) {
       this.isSignedIn = true;
-      console.log("this shit is null?")
     }
   }
 
   onLogin(){
-    if (this.neverLookHerePls()) this.isSignedIn = true;
+    this.neverLookHerePls();
+    if (this.user !== null) {
+      this.isSignedIn = true;
+    }
   }
 
+  onLogOut(){
+    this.userService.logOut();
+    location.reload();
+  }
 
   neverLookHerePls() : boolean{
-    let isLogged = false;
     this.userService.getUserByLP(this.name, this.password).subscribe( v => {
       console.log("============");
       console.log(JSON.stringify(v["_body"]));
@@ -41,10 +45,9 @@ export class ProfileWidgetComponent implements OnInit {
       else {
         this.user = JSON.parse(v["_body"]);
         this.userService.setCurrentUser(this.user);
-        isLogged = true;
+        location.reload();
       }
     });
-    console.log(JSON.stringify(this.user));
-    return isLogged;
+    return false;
   }
 }

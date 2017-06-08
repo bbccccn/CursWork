@@ -11,7 +11,7 @@ public interface TorrentService {
 
     TorrentDTO getTorrent(int id);
 
-    void createTorrent(Torrent torrent);
+    TorrentDTO createTorrent(Torrent torrent);
 
     void deleteTorrent(int id);
 }

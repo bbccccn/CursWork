@@ -23,4 +23,32 @@ public class FileDTO {
         type = file.getType();
         torrent = new TorrentDTO(file.getTorrent());
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public byte[] getFile() {
+        return file;
+    }
+
+    public Timestamp getCreationDate() {
+        return creationDate;
+    }
+
+    public Timestamp getUpdateDate() {
+        return updateDate;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public TorrentDTO getTorrent() {
+        return torrent;
+    }
 }

@@ -34,9 +34,16 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public FileDTO getById(int fileId) {
-        File file = fileRepository.findOne(fileId);
-        return new FileDTO(file);
+    public List<FileDTO> getByTorrentId(int torrentId) {
+        List<File> files = fileRepository.getAllTorrentFiles(torrentId);
+
+        List<FileDTO> fileDTOS = new ArrayList<>();
+
+        files.forEach(file -> {
+            fileDTOS.add(new FileDTO(file));
+        });
+
+        return fileDTOS;
     }
 
     @Override
